@@ -33,6 +33,15 @@
 
 ---
 
+## 📚 Documentation
+
+- **[ENV_VARIABLES.md](ENV_VARIABLES.md)** - Complete environment variables reference
+- **[PRODUCTION_SETUP.md](PRODUCTION_SETUP.md)** - Production deployment guide
+- **[.env.example](.env.example)** - Environment configuration template
+- **[.env.production.example](.env.production.example)** - Production environment template
+
+---
+
 ## 🎯 Overview
 
 **Invoicify Pro** is a comprehensive business management application designed for freelancers, small businesses, and enterprises. It streamlines invoice generation, expense tracking, client management, and project oversight with seamless Google Sheets synchronization and AI-powered assistance.
@@ -208,23 +217,34 @@ yarn install
 ```
 
 ### 3. Environment Configuration
+### 3. Environment Configuration
 
-Create a `.env` file in the root directory:
+Create a `.env.local` file in the root directory:
+
+```bash
+# Copy the example file
+cp .env.example .env.local
+
+# Or on Windows
+copy .env.example .env.local
+```
+
+**Required: Add your Gemini API Key**
+
+Edit `.env.local` and add:
 
 ```env
-# Gemini AI API Key (optional - for AI features)
-GEMINI_API_KEY=your_gemini_api_key_here
-
-# Development Server Configuration
-VITE_PORT=3000
-VITE_HOST=0.0.0.0
+# REQUIRED: Google Gemini AI API Key
+GEMINI_API_KEY=your_actual_api_key_here
 ```
 
 **To get a Gemini API Key:**
 1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
 2. Sign in with your Google account
 3. Create a new API key
-4. Copy and paste it into your `.env` file
+4. Copy and paste it into your `.env.local` file
+
+> 📖 **Need help with environment variables?** See [ENV_VARIABLES.md](ENV_VARIABLES.md) for complete documentation
 
 ### 4. Start Development Server
 
@@ -238,13 +258,21 @@ The application will be available at `http://localhost:3000`
 
 ## 🌍 Environment Configuration
 
-### Environment Variables
+### Quick Reference
 
 | Variable | Description | Required | Default |
 |----------|-------------|----------|---------|
-| `GEMINI_API_KEY` | Google Gemini AI API key for AI features | No | - |
+| `GEMINI_API_KEY` | Google Gemini AI API key | **YES** | - |
+| `VITE_GOOGLE_SHEET_URL` | Google Sheets sync URL | Recommended | - |
 | `VITE_PORT` | Development server port | No | 3000 |
 | `VITE_HOST` | Development server host | No | 0.0.0.0 |
+
+### Complete Documentation
+
+- **[ENV_VARIABLES.md](ENV_VARIABLES.md)** - All variables explained with examples
+- **[PRODUCTION_SETUP.md](PRODUCTION_SETUP.md)** - Platform-specific deployment guides
+- **[.env.example](.env.example)** - Development template
+- **[.env.production.example](.env.production.example)** - Production template
 
 ### Build-time Configuration
 
