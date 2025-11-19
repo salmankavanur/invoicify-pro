@@ -1,0 +1,5 @@
+{
+  "name": "Invoicify Pro",
+  "description": "A professional Invoice and Estimate generator with Google Sheets integration and AI-powered assistance.",
+  "requestFramePermissions": []
+}
