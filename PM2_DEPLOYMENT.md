@@ -33,10 +33,8 @@ NODE_ENV=production
 ```
 
 ### 3. Update PM2 Config
-Edit `ecosystem.config.js` and update the `cwd` path to your actual server path:
-```javascript
-cwd: '/home/user/invoicify-pro', // Update this line
-```
+The PM2 config is already set for your server path: `/home/digibayt.com/crm/invoicify-pro`
+If you need to change it, edit `ecosystem.config.cjs` and update the `cwd` path.
 
 ### 4. Deploy with PM2
 
@@ -47,7 +45,7 @@ npm run pm2:start
 
 #### Or use PM2 directly
 ```bash
-pm2 start ecosystem.config.js --env production
+pm2 start ecosystem.config.cjs --env production
 ```
 
 ### 5. Useful PM2 Commands
@@ -80,7 +78,7 @@ npm run pm2:delete
 - **Build automation**: Automatically builds the app before starting
 
 ### File Locations:
-- **Config**: `ecosystem.config.js`
+- **Config**: `ecosystem.config.cjs`
 - **Logs**: `./logs/` directory
 - **Build output**: `./dist/` directory
 
