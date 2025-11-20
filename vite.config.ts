@@ -9,6 +9,16 @@ export default defineConfig(({ mode }) => {
         port: parseInt(env.VITE_PORT || '3000', 10),
         host: env.VITE_HOST || '0.0.0.0',
       },
+      preview: {
+        port: parseInt(env.VITE_PORT || '5004', 10),
+        host: env.VITE_HOST || '0.0.0.0',
+        allowedHosts: [
+          'crm.digibayt.com',
+          'digibayt.com',
+          'localhost',
+          '127.0.0.1'
+        ]
+      },
       plugins: [react()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),

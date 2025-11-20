@@ -119,10 +119,18 @@ pm2 install pm2-server-monit
 
 ## Troubleshooting
 
-1. **Port already in use**: Change port in ecosystem.config.js
-2. **Permission denied**: Run with appropriate user permissions
-3. **Build fails**: Check Node.js version and dependencies
-4. **Can't access externally**: Check firewall settings
+1. **Blocked request/Host not allowed**: The domain is already configured in `vite.config.ts` for `crm.digibayt.com`
+2. **Port already in use**: Change port in ecosystem.config.cjs
+3. **Permission denied**: Run with appropriate user permissions
+4. **Build fails**: Check Node.js version and dependencies
+5. **Can't access externally**: Check firewall settings
+
+### If you get "Host not allowed" errors:
+The Vite config already includes your domain `crm.digibayt.com` in the allowed hosts. If you need to add more domains:
+1. Edit `vite.config.ts` 
+2. Add domains to the `preview.allowedHosts` array
+3. Rebuild: `npm run build`
+4. Restart PM2: `pm2 restart invoicify-pro`
 
 For more help, check the logs:
 ```bash
